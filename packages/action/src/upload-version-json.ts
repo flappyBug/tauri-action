@@ -2,7 +2,6 @@ import { getOctokit, context } from '@actions/github';
 import { resolve } from 'path';
 import { readFileSync, writeFileSync } from 'fs';
 import uploadAssets from './upload-release-assets';
-import fetch from 'node-fetch';
 import { arch, platform } from 'os';
 import { getAssetName } from './utils';
 import { Artifact } from '@tauri-apps/action-core';
