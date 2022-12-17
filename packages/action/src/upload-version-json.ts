@@ -73,11 +73,14 @@ export default async function uploadVersionJSON({
 
   const sigFile = artifacts.find((s) => s.path.endsWith('.sig'));
   const assetNames = new Set(artifacts.map((p) => getAssetName(p.path)));
+  console.log('Asset names: ', assetNames);
+  console.log('Asset data: ', assets.data);
   let downloadUrl = assets.data
     .filter((e) => assetNames.has(e.name))
     .find(
       (s) => s.name.endsWith('.tar.gz') || s.name.endsWith('.zip')
     )?.browser_download_url;
+  console.log('Download url: ', downloadUrl);
 
   // Untagged release downloads won't work after the release was published
   downloadUrl = downloadUrl?.replace(
